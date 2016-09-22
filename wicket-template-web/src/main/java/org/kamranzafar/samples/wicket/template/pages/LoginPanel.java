@@ -3,7 +3,6 @@ package org.kamranzafar.samples.wicket.template.pages;
 import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.authentication.IAuthenticationStrategy;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
-import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.StatelessForm;
@@ -12,12 +11,15 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.kamranzafar.samples.wicket.template.CssFeedbackPanel;
 
+import java.util.logging.Logger;
+
 /**
  * @author kamran
  * 
  */
 public class LoginPanel extends Panel {
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(LoginPanel.class.getName());
 
 	private static final String SIGN_IN_FORM = "loginForm";
 
@@ -108,16 +110,16 @@ public class LoginPanel extends Panel {
 	}
 
 	private boolean isSignedIn() {
-		return AuthenticatedWebSession.get().isSignedIn();
+        return AuthenticatedWebSession.get().isSignedIn();
 	}
 
 	protected void onSignInFailed() {
-		error(getLocalizer().getString("signInFailed", this, "Sign in failed"));
+        error(getLocalizer().getString("signInFailed", this, "Sign in failed"));
 	}
 
 	protected void onSignInSucceeded() {
-		continueToOriginalDestination();
-		setResponsePage(getApplication().getHomePage());
+       continueToOriginalDestination();
+        setResponsePage(getApplication().getHomePage());
 	}
 
 	public final class LoginForm extends StatelessForm<LoginPanel> {
@@ -131,11 +133,13 @@ public class LoginPanel extends Panel {
 			add(new TextField<String>("username").setRequired(true));
 			add(new PasswordTextField("password"));
 
-			WebMarkupContainer rememberMeRow = new WebMarkupContainer("rememberMeRow");
-			add(rememberMeRow);
+            add(new CheckBox("rememberMe"));
+			/*WebMarkupContainer rememberMeRow = new WebMarkupContainer("rememberMeRow");
+            rememberMeRow.add(new CheckBox("rememberMe"));
+            rememberMeRow.setVisible(includeRememberMe);
+            add(rememberMeRow);*/
 
-			rememberMeRow.add(new CheckBox("rememberMe"));
-			rememberMeRow.setVisible(includeRememberMe);
+
 		}
 
 		@Override

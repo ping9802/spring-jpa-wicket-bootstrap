@@ -29,6 +29,17 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.11.v20150529</version>
+                <!--<configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/wicket-template-web/</contextPath>
+                    </webApp>
+                </configuration>-->
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -170,9 +181,9 @@
         <postgres.version>9.1-901.jdbc4</postgres.version>
 
         <db.username>postgres</db.username>
-        <db.password>password1</db.password>
+        <db.password>aal_1558</db.password>
         <db.driver>org.postgresql.Driver</db.driver>
-        <db.url>jdbc\:postgresql\://localhost\:5432/hello</db.url>
+        <db.url>jdbc\:postgresql\://localhost\:5432/tests</db.url>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <jpa.hibernate.dialect>org.hibernate.dialect.PostgresPlusDialect</jpa.hibernate.dialect>

@@ -13,6 +13,8 @@ import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.kamranzafar.samples.wicket.template.pages.Index;
 import org.kamranzafar.samples.wicket.template.pages.LoginView;
 import org.kamranzafar.samples.wicket.template.rest.ckeditor.CKEditorResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.wicketstuff.springreference.SpringReferenceSupporter;
 
 /**
@@ -20,6 +22,9 @@ import org.wicketstuff.springreference.SpringReferenceSupporter;
  * 
  */
 public class Application extends AuthenticatedWebApplication {
+
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
+
 	@Override
 	protected void init() {
 		super.init();

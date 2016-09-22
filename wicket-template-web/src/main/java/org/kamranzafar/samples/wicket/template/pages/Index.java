@@ -1,16 +1,16 @@
 package org.kamranzafar.samples.wicket.template.pages;
 
-import java.util.logging.Logger;
-
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.kamranzafar.samples.wicket.template.AuthenticatedPage;
 import org.kamranzafar.samples.wicket.template.MenuItemEnum;
+
+import java.util.logging.Logger;
 
 /**
  * @author kamran
  * 
  */
-@AuthorizeInstantiation("USER")
+@AuthorizeInstantiation("USERS")
 public class Index extends AuthenticatedPage {
 	private static Logger logger = Logger.getLogger(Index.class.getName());
 
